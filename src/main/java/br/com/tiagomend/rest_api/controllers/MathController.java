@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.tiagomend.rest_api.exceptions.UnsupportedMathOperationException;
+import br.com.tiagomend.rest_api.exceptions.ResourceNotFoundException;
 
 @RestController
 public class MathController {
@@ -15,7 +15,7 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return convertDouble(numberOne) + convertDouble(numberTwo);
     }
@@ -25,7 +25,7 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return convertDouble(numberOne) - convertDouble(numberTwo);
     }
@@ -35,7 +35,7 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return convertDouble(numberOne) * convertDouble(numberTwo);
     }
@@ -45,7 +45,7 @@ public class MathController {
             @PathVariable(value = "numberOne") String numberOne,
             @PathVariable(value = "numberTwo") String numberTwo) throws Exception {
         if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
-            throw new UnsupportedMathOperationException("Please set a numeric value!");
+            throw new ResourceNotFoundException("Please set a numeric value!");
         }
         return convertDouble(numberOne) / convertDouble(numberTwo);
     }
